@@ -1,0 +1,1141 @@
+// ** Mixins ******
+
+
+
+@import '_mixin';
+@import '_variables';
+// @import 'media';
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+
+}
+
+.header, .main, .footer {
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+//Плавный скроллинг по якорям
+html{
+  scroll-behavior: smooth;
+  
+}
+
+/* **************** Start block ************************** */
+
+.header {  
+  width: 100%;
+  min-width: 260px;
+  color: white;
+  background-blend-mode: soft-light; //смешивание слоев
+  background: url(../img/img1.png), $bgd-row1;
+  background-size: cover;
+
+  &__container {
+    @include classHeaderContainer(flex, column wrap, flex-start, center, 100%, 1280px, 0 auto, $fntFam, $colorTitle2);
+
+  }
+
+  &__title {
+    margin: 10vw 10vw;
+
+    h1 {
+      @include title(5vw, 400);
+      margin-bottom: 30px;
+
+    }
+
+    h2 {
+      @include title(4vw, 700);
+      margin-bottom: 30px;
+    }
+
+    h4 {
+      @include title(2vw, 300);
+    }
+  } // header__title
+
+  &__social {
+    width: 70%;     
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    
+    margin: auto 30px;
+    user-select: none;  
+  
+    a {
+      display: flex;    
+      justify-content: center;
+      align-items: center;      
+      width: 40px;
+      height: 40px;
+      margin-right: 30px;;
+      background: transparent;
+      border: 1px solid $colorTitle2;
+      border-radius: 50%;
+      color: $colorTitle2;
+      text-decoration: none;
+      transition: all .2s linear;
+      
+  
+      &:hover {
+        border: transparent;
+        background: $bgd-icon;
+        color: $colorTitle2;
+        transition: all .2s linear;
+      }
+    }  
+  
+    .fab {    
+      font-size: 24px;    
+    }
+
+    &-media {
+
+      visibility: visible !important;
+      transition: all .2s linear;
+
+      &:nth-child(1) {
+          transform: translateX(150%);
+          transition: all .2s linear .1s;
+      }
+
+      &:nth-child(2) {
+          transform: translate(100%, 100%);
+          transition: all .2s linear .2s;
+      }
+
+      &:nth-child(3) {
+          transform: translateY(150%);
+          transition: all .3s linear .3s;
+      }
+  }
+}//header__social
+  
+
+
+  &__nav {  
+    width: 30%; 
+    margin-right: 30px;                  
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  
+    &_wrap {    
+      position: relative;
+      width: 50px;
+      height: 50px;
+      border: 1px solid white;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all .2s linear;
+      z-index: 3;
+
+      
+     
+  
+      &:hover {
+        border: transparent;
+        background: $bgd-icon;
+        color: $colorTitle2;
+        transition: all .2s linear;
+      }
+    } //header__nav_wrap
+    
+  
+    &_btn,
+    &_btn::before,
+    &_btn::after {
+      width:25px;     
+      height:3px;
+
+      position: absolute;      
+      left: 50%; margin-left:-12.5px ;
+      top:50%; margin-top: -1.5px;
+
+      background: white;
+      transition: all 0.2s ease-in;
+      z-index: 3;
+    }
+    
+    &_btn{
+      transition:  0.2s ease-in ;
+      
+      &::before {      
+        content: "";     
+        transform: translateY(-8px);      
+    
+      }
+    
+      &::after {
+        content: "";
+        transform: translateY(8px) ;
+              
+      } 
+    
+      
+      &-active {
+        position: relative;
+        border: transparent;
+        background: $bgd-icon;
+        z-index: 3;
+      }
+  
+      &-active .header__nav_btn {        
+        height: 0; 
+  
+        &::before {        
+          transform: rotate(45deg);       
+          
+        }
+      
+        &::after {        
+          transform: rotate(-45deg);        
+         
+        }
+      }
+  
+       
+    }//header__nav_btn
+
+
+    
+  &_menu {
+    position: absolute;
+    top: 120px;
+    right: 30px;    
+    visibility: hidden;
+    
+   
+    
+  
+    &-active {
+      visibility: visible;
+      position: absolute;
+      top: -80px;
+      right:35px;
+      width: 200px;
+      height: 30px;
+      transform-origin: 100% 50%;
+      transition: transform linear 1s;
+      z-index: 0;
+     
+    
+      &:nth-child(1) {
+        transform: rotate(0deg);
+        transition: transform 0.1s linear;
+      }
+    
+      &:nth-child(2) {
+        transform: rotate(-22.5deg);
+        transition: transform 0.2s linear;
+      }
+    
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+        transition: transform 0.3s linear;
+      }
+    
+      &:nth-child(4) {
+        transform: rotate(-67.5deg);
+        transition: transform 0.4s linear;
+      }
+    
+      &:nth-child(5) {
+        transform: rotate(-90deg);
+        transition: transform 0.5s linear;
+      }
+    
+      a {
+        text-decoration: none;
+        color: white;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 18px;
+    
+        &:hover {
+          color:$bgd-icon;
+          transition: color .3s linear;
+        }
+      }
+    }//header__nav_menu-active
+  }//header__nav_menu
+
+} //header__nav
+
+.nav {
+  position: sticky;
+  top: 0;
+  max-width: 1280px;  
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+}//header
+
+
+// *********************** MAIN ********************
+//  *******************  aboutMe ********************
+
+.main {
+  position: relative;
+  width: 100%;
+  
+  min-width: 260px;
+ 
+}
+
+.container {
+  @include classContainer($width:100%, $height:auto, $fntFam:$fntFam, $color:$colorText);
+  user-select: none;
+  
+  
+  &__title {
+    display: inline;
+    text-align: center;
+    margin: 140px auto;
+    font-size: 50px;
+    font-weight: 700;
+    background: $bgd-row1; // background color;
+    -webkit-background-clip: text; // background color only for text
+    -webkit-text-fill-color: transparent; // fill color characters of text - transparent 
+  }
+
+  &_bgd-dark {
+    background: $bgd-row2;
+  }
+
+  &_bgd-gray {
+    background: $bgd-row3;
+  }
+
+} // container 
+
+
+/*  *************** block 'aboutMe' *******************  */
+
+.aboutMe{
+  @include classRow (flex, row wrap, 100%, 1280px, 0 auto);
+
+  
+  &__photo{
+    flex: 1 1 0;    
+    margin-top: 160px;
+    margin-left: 30px;
+    
+
+    #download {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 100px 0 0  90px;
+      width: 180px;
+      height: 50px;      
+      text-decoration: none;      
+      color: $colorTitle1;
+      transition: all 0.2s ease-in;      
+      font-weight: 300;
+
+      // рамка с градиентом
+      border:1px solid transparent;
+      border-image: $bgd-row1;        
+      border-image-slice: 1;
+    
+    
+      &:hover{
+        background: linear-gradient(90deg, rgba(26,215,153,0.8) 0%, rgba(47,235,226,0.8) 100%);
+        box-shadow: 0 0 3px 3px $colorTitle1;
+        transition: color .2s ease-in;
+        color: $bgd-row2;
+      }
+    }
+  }
+
+  &__photo-border{
+    width: 66%; //устанавливаем соотношение сторон при респонсиве
+    min-width: 220px;
+    min-height: 220px;
+    padding-top: 66%; //устанавливаем соотношение сторон при респонсиве  
+    position: relative;
+    border: 4px solid rgba(26, 215, 153, 1);
+    margin-left: 50px;
+    z-index: 1;
+  }
+
+  &__photo-bgd{
+    position: absolute;
+    top: 40px;
+    left: -40px;
+    background: rgba(0, 0, 0, 1);
+    z-index: 2;
+    width: 100%; 
+
+    img {
+      display: block;
+      min-width: 220px;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__section_aboutMe {
+    margin: 140px 30px;
+    flex: 1 1 0;
+    min-width: 260px;
+  
+    p {
+      margin-top: 30px;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  
+    h6 {
+      margin-top: 16px;
+      font-size: 16px;
+      color: rgba(26, 215, 153, 1);
+  
+      span {
+        font-weight: 300;
+        color: $colorText;
+      }
+    }
+  
+  } // __section_aboutMe 
+  
+  &__myInterests {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  
+  
+    h2 {
+      width: 100%;      
+      text-align: center;
+      margin-bottom: 100px;
+      position: relative;
+      
+    }
+  
+     
+} // __myInterests 
+
+&__myInterests-icon {
+  width: 100px;
+  height: 200px;
+  margin: 0 50px;
+
+  div {
+    margin: 0 auto;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid rgba(26, 215, 153, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .4s linear;
+
+    i {
+      font-size: 40px;
+      color: $colorTitle1;
+      transition: 0.35s color;
+    }
+    
+    &:hover .briefly {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity .4s linear, visibility .4s linear;
+    }
+
+    &:hover {
+     background: $colorTitle1;      
+     transition: all .4s linear;
+    }
+
+    &:hover ~ span,
+    &:hover i {
+      opacity: 1;
+      visibility: visible;      
+      transition: all .4s linear ;
+    }
+    &:hover i {
+      color: $bgd-icon;
+    }
+
+  }
+
+  span {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    margin-top: 20px;
+    text-align: center;
+    transition: all 0.4s linear ;
+  }
+
+ 
+  .briefly{
+    position: absolute;
+    left: 0;
+    margin-left: calc(-100px + 50px);    
+    top: 0;
+    margin-top: calc(-80px - 10px);
+    text-align: center;
+    font-weight: 300;
+    visibility: hidden;
+    opacity: 0;
+
+    width: 200px;
+    height: 80px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 55% 90%, 50% 100%, 45% 90%, 0% 90%, 0% 0%);
+    color: $bgd-icon;
+    background: $colorTitle1;
+    border: 1px solid $colorTitle1;
+    z-index: 2;
+    transition: opacity 0.4s linear, visibility .4s linear;   
+    
+  }
+
+} // __myInterests-icon 
+
+
+
+} // aboutMe 
+
+
+/* *************  block 'Education' *********** */
+
+.container {
+
+  &__education,
+  &__work {
+  @include classRow (flex, column wrap, 100%, 1280px, 0 auto);
+  height: auto;}
+
+  &__tree {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;    
+    
+  }
+
+  &__section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 0px;
+
+    .center {      
+     position: relative;
+     z-index:1;
+      .far {         
+        font-size: 32px;
+        color: $colorText2;       
+      }
+
+    }
+  }
+
+  &__item1 {
+    display: block;
+    flex: 1 1 0;
+    padding: 0 15px;
+    line-height: 1.5;
+    text-align: right;
+  
+    h2 {
+      color: $colorText2;
+    }
+  
+  }
+  
+  
+  &__item1_reverce {
+    flex: 1 1 0;
+    padding: 0 15px;
+    line-height: 1.5;
+    text-align: left;
+    order: 1;
+  
+    h2 {
+      color: $colorText2;
+    }
+      
+  }
+
+
+  &__item2{
+    flex: 1 1 0;
+    padding: 0 15px;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: left;
+    
+  }
+
+
+  &__item2_reverce{
+    flex: 1 1 0;
+    padding: 0 15px;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: right;
+    order: -1;
+  }
+
+
+
+
+
+  &__treeTop {
+  margin: 0 auto;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid $colorText2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: inherit;
+  z-index: 2;
+
+
+  .fas,
+  .fab {
+    font-size: 32px;
+    color: $colorText2;
+
+  }
+}
+
+  &__treeTrunkTop {
+    position: relative;
+    width: 3px;
+    height: 100px;
+    background: $colorText2;
+    z-index: 0;
+    margin: 0 auto;
+}
+
+  &__treeTrunk {
+    position: relative;
+    width: 3px;
+    height: 150px;
+    background: $colorText2;
+    z-index: 0;
+}
+
+section:last-of-type .container__treeTrunk {
+  height: 250px;
+}
+
+
+  &__treeEnd {      
+    display: block;
+    margin: 0 auto;
+    width: 20px;
+    height: 20px;
+    border: 1px solid $colorText2;
+    border-radius: 50%;
+    background: $colorText2;
+    margin-bottom: 120px;  
+
+}
+
+} // container
+
+
+/* ****** block  work ************************** */
+// вариант с абсолютным позиционированием элементов дерева
+/* .work {
+  @include classRow (flex, column wrap, 100%, 1280px, 0 auto); 
+
+  &__top-icon {
+    margin: 0 auto;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid $colorText2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .fas,
+    .fab {
+      font-size: 32px;
+      color: $colorText2;
+
+    }
+
+  }
+
+  &__tree_wrapper {
+    margin: 0 auto;
+    display: flex;
+    width: 90%;
+    height: 680px;
+  }
+
+  &__leftTree,
+  &__rightTree {
+      height: 100%;
+      flex: 1 1 0;
+      list-style: none;
+
+      position: relative;
+
+
+      h2 {
+        color: $colorText2;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 300;
+      }
+
+      li:first-of-type {
+        top: 100px;
+
+      }
+
+      li:nth-of-type(2) {
+        top: 250px;
+      }
+
+      li:nth-of-type(3) {
+        top: 400px;
+      }
+
+      li:last-of-type {
+        top: 550px;
+      }
+
+      li {
+        width: 90%;
+        position: absolute;
+      }
+  }
+
+  &__leftTree {
+    border-right: 3px solid $colorText2;
+
+    li {
+      text-align: right;
+      padding-right: 30px;
+      right: 0px;
+    }
+
+  }
+
+  .icon {
+    position: absolute;
+    top: 0;
+    right: -17px;
+
+    .far {
+
+      font-size: 32px;
+      color: $colorText2;
+      background: $bgd-row2;
+      z-index: 1;
+    }
+  }
+
+  &__rightTree {
+
+    li {
+      text-align: left;
+      padding-left: 30px;
+    }
+  }
+
+} //work  */
+
+// ********* profSkill ****************************
+
+
+.profSkill {
+  @include classRow (flex, column wrap, 100%, 1280px, 0 auto);  
+ 
+
+  &__items {
+    width: 100%;
+    margin: 0 auto 100px ;
+    
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+    transition: 0.5s;     
+  }
+
+  &__card {
+    flex:0 1 260px;    
+    box-shadow: 0px 0px 10px 5px $colorText;
+    margin: 0 20px 50px;     
+    transition: all 0.2s linear; 
+    
+    &:hover {
+      transform: scale(1.05,1.05);
+    }
+
+    &_scale{
+      margin: 50px 20px;
+      width: 85%;
+      height: 6px;  
+      background: $bgd-row2;
+    }
+       
+    h2{
+      text-align: center;
+      height: 60px;
+      font-size: 20px;
+      margin: 20px 20px 40px ;
+    } 
+    
+    img{
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      
+      filter:grayscale(0.8);
+    }
+    
+  }
+  
+}
+
+
+.indication { 
+  
+  @include cardIndication( $height:100%, $bgd:$bgd-row1,$posRel:relative,$fntSz:14px,$posAbslt:absolute,$posTop:-30px,$posRight:-5%,$posLeft:0 )
+
+}
+
+.dot{
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: $colorText2;
+  position: absolute;
+  right: -5px;
+  top: -3.75px;
+}
+
+//skillName
+.autoCad{
+  @include skillName(75%,'AutoCad');  
+}
+
+.sCad{
+  @include skillName(65%,'SCAD');  
+}
+
+.base{
+  @include skillName(75%,'Base');  
+}
+
+.html {
+  @include skillName(75%,'HTML');
+}
+
+.css {
+  @include skillName(75%,'CSS');
+}
+
+.js {
+  @include skillName(40%,'JS');
+}
+
+.skill-1{
+  @include skillName(80%,'Монтаж конструкций');
+}
+
+.skill-2{
+  @include skillName(90%,'Электроинструмент');
+}
+
+.skill-3{
+  @include skillName(95%,'Чтение чертежей');
+}
+
+
+// ************  contacts ************************
+
+.contact{
+  @include classRow (flex, column wrap, 100%, 1280px, 0 auto);  
+
+  &__form{    
+    width: 94%;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;  
+    margin-bottom: 100px; 
+    
+    div:first-child, div:nth-child(2){
+      width: calc(50% - 20px * 2);      
+      height: 30px;
+    }
+
+    div:nth-child(3){
+      margin-top: 60px;
+      width: 100%;     
+     
+    }
+
+
+    div{
+      position: relative;      
+      margin: 30px 20px; 
+      color: rgba(255, 255, 255,.3);
+      font-weight: 300; 
+      min-width: 240px;
+      
+      
+      &::after{
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 14px;        
+        
+      }
+
+      &:first-child::after{
+        content: 'NAME';
+      
+      }
+      &:nth-child(2)::after{
+        content: 'EMAIL';
+      }
+      
+      &:nth-child(3)::after{
+        content: 'MESSAGE';
+      }
+       
+
+    }
+
+  }   
+}
+
+.clickInput{
+  position: relative;
+  
+  &::after{
+    top: -30px !important;  
+    color: $colorTitle1 !important;
+    transition: all  0.3s linear;
+  }   
+}
+
+
+input[type = text], input[type = email],textarea{
+      
+  background: transparent;
+  color: rgba(255, 255, 255,.7);
+  font-size: 16px;
+  font-weight: 300;
+  font-family: $fntFam;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255,.3);
+  outline-style: none; 
+  position: relative;      
+  z-index: 1;
+      
+
+  &:focus{
+    border-bottom:1px solid transparent;
+    border-image: $bgd-row1;        
+    border-image-slice: 1;
+        
+  }
+
+}    
+    
+input[type = text], input[type = email]{          
+  width: 100%; 
+  height: 100%;
+      
+}
+
+textarea{     
+  width: 100%;                
+  resize: none; 
+           
+}
+
+    
+#submit{
+  margin: 50px auto 0;
+  width: 180px;
+  height: 50px;
+  outline-style: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: transparent;
+  color: $colorTitle1;
+  transition: all 0.2s ease-in;
+  
+  // рамка с градиентом
+  border-bottom:2px solid transparent;
+  border-image: $bgd-row1;        
+  border-image-slice: 1;
+
+
+  &:hover{
+    background: linear-gradient(45deg, rgba(26,215,153,0.8) 0%, rgba(47,235,226,0.8) 100%);
+    
+    box-shadow: 0 0 3px 3px $colorTitle1;
+    transition: color .2s ease-in;
+    color: $bgd-row2;
+  }
+
+} // submit button
+ 
+
+
+
+#up {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  top: 90vh;
+  right: 2%; 
+  background:$bgd-row1; 
+  transition: all 0.3s linear;
+  z-index: 3;
+  // border: 1px solid blue;
+
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;    
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    // border: 1px solid yellow;
+    
+
+     i{
+      position: absolute;
+      left: 50%;
+      margin-left: -12px;
+      top: 50%; 
+      margin-top: -18px;
+      color: $bgd-row2;        
+      font-size: 36px;
+      transition: 0.3s linear;
+      z-index: 2;
+      // border: 1px solid red;
+    }
+
+  }
+
+  &:hover{   
+    transition: all 0.3s linear;
+    box-shadow: 0 0 1px 2px $colorText2;
+  }
+  &:hover i{
+    transform: translateY(-3px);
+    transition: 0.3s linear;
+  }
+
+  
+}// #up button
+
+.footer {
+  
+  width: 100%; 
+  min-width: 240px;
+
+  &__container {
+    @include classContainer($width:100%, $height:auto, $fntFam:$fntFam, $color:$colorText);
+  }
+
+  &__info {
+    @include classRow ($disp:flex, $flxFlow: column wrap, $width:100%, $maxWidth:1280px, $mrg: 0 auto);
+    justify-content: center;
+    align-items: center;    
+    
+  }
+
+  &__social {    
+    
+    width: 50%;
+    min-width: 240px;    
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 80px 0;
+    user-select: none;  
+  
+    a {
+      display: inline-flex;    
+      justify-content: center;
+      align-items: center;
+      margin-right: 20px;
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: 1px solid $colorTitle1;
+      border-radius: 50%;
+      color: $colorTitle1;
+      text-decoration: none;
+      transition: all .2s linear;
+  
+      &:hover {
+        border: transparent;
+        background: $colorTitle1;
+        color: $bgd-row3;
+        transition: all .2s linear;
+      }
+    }  
+  
+    .fab {    
+      font-size: 24px;    
+    }
+  }
+
+  hr {
+    width: 100%;
+    height: 1px;
+    color: $colorText;
+    opacity: 0.3;
+    margin: 50px 0;
+  }
+
+  p {
+    text-align: center;
+    word-spacing: 5px;
+    margin-bottom: 30px;
+  }
+
+
+
+} //footer
+
