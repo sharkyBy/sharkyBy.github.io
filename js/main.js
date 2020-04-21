@@ -1,3 +1,5 @@
+
+
 // nav button
 
 let btn = document.getElementsByClassName('header__nav_wrap')[0];
@@ -24,7 +26,7 @@ function scroll (e) {
         } 
           
     }
-    console.log(`scrollTop = ${window.scrollTop}; scrollY = ${window.scrollY}; pageYOffse = ${window.pageYOffset}`)
+    console.log(`scrollY = ${window.scrollY}; pageYOffse = ${window.pageYOffset}`)
 }
 
 
