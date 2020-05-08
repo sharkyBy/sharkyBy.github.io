@@ -1,0 +1,67 @@
+@mixin title($fSz, $fWt) {
+    font-size: $fSz;
+    font-weight: $fWt;
+    user-select: none;
+};
+
+
+@mixin classHeaderContainer ($disp, $flxFlow, $flxJustCont,$flxAlItem ,$width, $maxWidth,$mrg,$fntFam, $color){
+    display: $disp;
+    flex-flow: $flxFlow;
+    justify-content: $flxJustCont;
+    align-items: $flxAlItem;
+    width: $width;
+    max-width: $maxWidth;   
+    margin: $mrg; 
+    font-family: $fntFam;   
+    color: $color;  
+} 
+
+@mixin classContainer ($width,  $height, $fntFam,  $color) {
+    width: $width;    
+    height: $height;    
+    font-family: $fntFam;    
+    color: $color;
+    
+}
+
+
+@mixin classRow ($disp, $flxFlow, $width, $maxWidth, $mrg) {
+    display: $disp;
+    flex-flow: $flxFlow;    
+    width: $width;
+    max-width: $maxWidth;   
+    margin: $mrg;    
+    
+    
+}
+
+@mixin cardIndication( $height, $bgd,$posRel,$fntSz,$posAbslt,$posTop,$posRight,$posLeft ) {
+  
+    height: $height;
+    background: $bgd;
+    position: $posRel;
+    font-size: $fntSz;
+
+    &::after{
+        position:$posAbslt ;
+        top: $posTop;
+        right: $posRight;
+    }
+
+    &::before{
+        position:$posAbslt ;
+        top: $posTop;
+        left: $posLeft;
+    }    
+}
+
+@mixin skillName($width,$skillName) {
+    width: $width; // percentage value
+    &::before {
+        content: $skillName;
+    }
+    &::after {
+        content:'#{$width}';
+    }
+}
