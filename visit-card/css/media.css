@@ -39,11 +39,15 @@
     z-index: 2;
   }
   .header__social::before {
+    display: inline;
+    text-align: center;
+    vertical-align: middle;
+   
     position: absolute;
-    top: 10px;
-    left: 15px;
-    content: "╋";
-    font-size: 20px;
+    top: -5px;
+    left: 13px;
+    content: "+";
+    font-size: 40px;
     transition: transform 0.2s linear;
   }
   .header__social-active {
