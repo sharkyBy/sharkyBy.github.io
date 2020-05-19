@@ -6079,7 +6079,7 @@ readers do not read off random characters that represent icons */
   font-size: 50px;
   font-weight: 700;
   background: linear-gradient(to right, #1ad799 0%, #2febe2 100%);
-  clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .container_bgd-dark {

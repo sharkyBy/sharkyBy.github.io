@@ -306,7 +306,7 @@
     font-size: 50px;
     font-weight: 700;
     background: $bgd-row1; // background color;
-    clip: text; // background color only for text
+    -webkit-background-clip: text; // background color only for text
     -webkit-text-fill-color: transparent; // fill color characters of text - transparent 
   }
 
