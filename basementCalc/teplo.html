@@ -5,145 +5,155 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="font/css/all.min.css">
   <!-- <script defer src="./js/index.js" type="module"></script> -->
   <script defer type="module" src="js/main.js"></script>
-  <title>Teplo</title>  
+  <title>Teplo</title>
 </head>
 
 <body>
   <div class="container">
-<h3 class="container_title">Теплотехнический расчет ограждающих конструкций</h3>
-<table class="container_table table_climat">
-  <caption>Исходные данные</caption>
-  <tr><th colspan="5"><span class="table_titleRow">I. Климатические характеристики</span></th></tr>
-  <tr>
-    <td ><span>1</span></td>
-    <td >Район строительства</td>
-    <td colspan="3">
-      <select id="region">
-      <option value="-21">Брестская область</option>
-      <option value="-25">Витебская область</option>
-      <option value="-24">Гомельская область</option>
-      <option value="-22">Гродненская область</option>
-      <option value="-24">Минская область</option>
-      <option value="-24">Могилевская область</option>
-    </select>
-  </td>
-  </tr>
-  <tr>
-    <td><span>2</span></td>
-    <td>Температура наружного воздуха</td>
-    <td><span>t<sub>н</sub></span></td>
-    <td ><input type="text" maxlength="3"class="auto" id="regTemp" value=""></td>
-    <td><span>&degC</span></td>
-  </tr>
-  <tr>
-    <td><span>3</span></td>
-    <td>Температура внутреннего воздуха</td>
-    <td><span>t<sub>в</sub></span></td>
-    <td><input type="text" maxlength="3"></td>
-    <td><span>&degC</span></td>
-  </tr>
-  <tr>
-    <td><span>4</span></td>
-    <td>Объем воздуха техподполья</td>
-    <td><span>V<sub>п</sub></span></td>
-    <td><input type="text" maxlength="5"></td>
-    <td><span>м<sup>3</sup></span></td>
-  </tr>
-  <tr>
-    <td><span>5</span></td>
-    <td>Кратность воздухообмена</td>
-    <td><span>n<sub>a</sub></span></td>
-    <td><input type="text" maxlength="5"></td>
-    <td><span>ч<sup>-1</sup></span></td>
-  </tr>
-  <tr>
-    <td><span>6</span></td>
-    <td>Плотность наружного воздуха</td>
-    <td><span>&rho;<sub>н</sub></span></td>
-    <td ><input type="text" maxlength="5" class="auto" id="outsideair"></td>
-    <td><span>кг/м<sup>3</sup></span></td>
-  </tr>
-  <tr></tr>
-</table>
+    <h3 class="container_title">Теплотехнический расчет ограждающих конструкций</h3>
+    <table class="container_table table_climat">
+      <caption>Исходные данные</caption>
+      <tbody>
+        <tr>
+          <th colspan="5"><span class="table_titleRow">I. Климатические характеристики</span></th>
+        </tr>
+        <tr>
+          <td><span>1</span></td>
+          <td>Район строительства</td>
+          <td colspan="3">
+            <select id="region">
+              <option value="-21">Брестская область</option>
+              <option value="-25">Витебская область</option>
+              <option value="-24">Гомельская область</option>
+              <option value="-22">Гродненская область</option>
+              <option value="-24">Минская область</option>
+              <option value="-24">Могилевская область</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><span>2</span></td>
+          <td>Температура наружного воздуха</td>
+          <td><span>t<sub>н</sub></span></td>
+          <td><input type="text" maxlength="3" class="auto" id="regTemp" value=""></td>
+          <td><span>&degC</span></td>
+        </tr>
+        <tr>
+          <td><span>3</span></td>
+          <td>Температура внутреннего воздуха</td>
+          <td><span>t<sub>в</sub></span></td>
+          <td><input type="text" maxlength="3"></td>
+          <td><span>&degC</span></td>
+        </tr>
+        <tr>
+          <td><span>4</span></td>
+          <td>Объем воздуха техподполья</td>
+          <td><span>V<sub>п</sub></span></td>
+          <td><input type="text" maxlength="5"></td>
+          <td><span>м<sup>3</sup></span></td>
+        </tr>
+        <tr>
+          <td><span>5</span></td>
+          <td>Кратность воздухообмена</td>
+          <td><span>n<sub>a</sub></span></td>
+          <td><input type="text" maxlength="5"></td>
+          <td><span>ч<sup>-1</sup></span></td>
+        </tr>
+        <tr>
+          <td><span>6</span></td>
+          <td>Плотность наружного воздуха</td>
+          <td><span>&rho;<sub>н</sub></span></td>
+          <td><input type="text" maxlength="5" class="auto" id="outsideair"></td>
+          <td><span>кг/м<sup>3</sup></span></td>
+        </tr>
+        <tr></tr>
+      </tbody>
 
-<table class="container_table table_construction">
-  <tr>
-    <th colspan="5"><span class="table_titleRow">II. Характеристики ограждающих конструкций</span> 
-    </th></tr>
-  <tr>    
-    
-    <td colspan="2">Наименование ограждающих конструкций</td>
-    <td >Площадь ограждающих конструкций S, м<sup>2</sup></td>
-    <td >Сопротивление теплопередаче ограждающих конструкций <span>R, м<sup>2</sup>&middot;&deg;C / Вт</span></td>    
-  </tr>
-  <tr>
-    <td><span>7</span></td>
-    <td><span>Наружные стены выше уровня планировки</span></td>
-    <td><input type="text" ></td>
-    <td><input type="text" ></td>
-  </tr>
-  <tr>
-    <td><span>8</span></td>
-    <td><span>Наружные стены ниже уровня планировки</span></td>
-    <td><input type="text" ></td>
-    <td><input type="text" ></td>
-  </tr>
-  <tr>
-    <td><span>9</span></td>
-    <td><span>Перекрытие над техподпольем</span></td>
-    <td><input type="text" ></td>
-    <td><input type="text" ></td>
-  </tr>
-  <tr>
-    <td><span>10</span></td>
-    <td><span>Пол техподполья</span></td>
-    <td><input type="text" ></td>
-    <td><input type="text" ></td>
-  </tr>
-  <tr>
-    <td><span>11</span></td>
-    <td><span>Оконные проемы</span></td>
-    <td><input type="text" ></td>
-    <td><input type="text" ></td>
-  </tr>
-  <tr>
-    <td><span>12</span></td>
-    <td><span>Дверные проемы</span></td>
-    <td><input type="text" ></td>
-    <td><input type="text" ></td>
-  </tr>
-</table>
-</div>
+    </table>
 
-<div class="modal" id="modal_1">
-  <table class="container_thermal-resistance" id="thermal">
-    <tr>
-      <th><span>№ п/п</span> </th>
-      <th><span>Наименование материала</span></th>
-      <th><span>Толщина материала <b>&delta;</b>, м</span></th>
-      <th>
-        <span>Коэффициент теплопроводности материала 
-          <b>&lambda;</b>, Вт / м<sup>2</sup>&middot;&deg;C
-        </span> 
-      </th>
-      <th>
-        <span>Сопротивление теплопередаче слоя материала 
-          <b>R</b>, м<sup>2</sup>&middot;&deg;C / Вт
-        </span>
-      </th>
-    </tr>
-    <tr class="thermal_row">
-      <td>1</td>
-      <td><input class="material-name" type="text" placeholder="материал" value=""> </td>
-      <td><input class="material-name" type="text" placeholder="толщина" value="" id="weight"></td>
-      <td><input class="material-name" type="text" placeholder="коэффициент" id="coeff" value=""></td>
-      <td><input class="material-name res" type="text" readonly value=""></td>
-    </tr>
-    <button class="button" id="addButton"> <span>Добавить</span> </button> >
-  </table>
-</div>
+    <table class="container_table table_construction">
+      <tr>
+        <th colspan="5"><span class="table_titleRow">II. Характеристики ограждающих конструкций</span>
+        </th>
+      </tr>
+      <tr>
+
+        <td colspan="2">Наименование ограждающих конструкций</td>
+        <td>Площадь ограждающих конструкций S, м<sup>2</sup></td>
+        <td>Сопротивление теплопередаче ограждающих конструкций <span>R, м<sup>2</sup>&middot;&deg;C / Вт</span></td>
+      </tr>
+      <tr>
+        <td><span>7</span></td>
+        <td><span>Наружные стены выше уровня планировки</span></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td><span>8</span></td>
+        <td><span>Наружные стены ниже уровня планировки</span></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td><span>9</span></td>
+        <td><span>Перекрытие над техподпольем</span></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td><span>10</span></td>
+        <td><span>Пол техподполья</span></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td><span>11</span></td>
+        <td><span>Оконные проемы</span></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td><span>12</span></td>
+        <td><span>Дверные проемы</span></td>
+        <td><input type="text"></td>
+        <td><input type="text"></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="modal" id="modal_1">
+    <tbody>
+      <table class="modal_table" id="thermal">
+      <tr>
+        <th><span>№ п/п</span> </th>
+        <th><span>Наименование материала</span></th>
+        <th><span>Толщина материала <b>&delta;</b>, м</span></th>
+        <th>
+          <span>Коэффициент теплопроводности материала
+            <b>&lambda;</b>, Вт / м<sup>2</sup>&middot;&deg;C
+          </span>
+        </th>
+        <th>
+          <span>Сопротивление теплопередаче слоя материала
+            <b>R</b>, м<sup>2</sup>&middot;&deg;C / Вт
+          </span>
+        </th>
+      </tr>
+      <tr class="thermal_row">
+        <td>1</td>
+        <td><input class="material-name" type="text" placeholder="материал" value=""> </td>
+        <td><input class="material-name" type="text" placeholder="толщина" value="" id="weight"></td>
+        <td><input class="material-name" type="text" placeholder="коэффициент" id="coeff" value=""></td>
+        <td><input class="material-name res" type="text" readonly value=""></td>
+      </tr>
+    </tbody> 
+      <div class="summ"><span id="summ"><span>&sum;</span></span></div>   
+      <button class="button add" id="addButton"> <span class="fas fa-plus"></span> </button> 
+    </table>
+  </div>
 </body>
 
 </html>

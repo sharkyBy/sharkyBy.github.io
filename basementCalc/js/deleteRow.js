@@ -2,7 +2,7 @@
 
 //Удаление строк из таблицы модального окна
 export default function deleteRow(e) {
-  e.target.parentElement.remove();
+  e.target.parentElement.parentNode.remove();
   // console.log(e.target)
   return renameRow();
 }

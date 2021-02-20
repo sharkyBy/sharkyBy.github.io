@@ -12,9 +12,13 @@ export function addRow() {
   let tr = table.insertRow();
   setAttributes(tr, { "class": "thermal_row" })
   let delBtn = document.createElement("button");
-  delBtn.innerHTML = "Удалить"
-  setAttributes(delBtn, { "class": "delete" })
-  delBtn.addEventListener("click", deleteRow)
+  // delBtn.innerHTML="Удалить";
+  let span = document.createElement("span");
+  setAttributes(span,{"class":"far fa-trash-alt"})
+  delBtn.appendChild(span);
+  setAttributes(delBtn, { "class": "button delete" })
+  // delBtn.addEventListener("click", deleteRow);
+  span.addEventListener("click",deleteRow);
   return addCells(table,tr,delBtn,setAttributes);
 }
 
