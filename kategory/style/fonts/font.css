@@ -10,5 +10,17 @@
   font-family: "RobotoLight";
   src: url(./fonts/Roboto-Light.ttf);
 }
+@font-face {
+  font-family: "FontAwesome";
+  src: url(/scss/fontawesome.scss);
+}
+@font-face {
+  font-family: "FontAwesome_regular";
+  src: url(/scss/regular.scss);
+}
+@font-face {
+  font-family: "FontAwesome_solid";
+  src: url(/scss/solid.scss);
+}
 
 /*# sourceMappingURL=font.css.map */
