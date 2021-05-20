@@ -11,16 +11,17 @@
   src: url(./fonts/Roboto-Light.ttf);
 }
 @font-face {
-  font-family: "FontAwesome";
-  src: url(/scss/fontawesome.scss);
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url("../webfonts/fa-solid-900.eot");
+  src: url("../webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.woff") format("woff"), url("../webfonts/fa-solid-900.ttf") format("truetype"), url("../webfonts/fa-solid-900.svg#fontawesome") format("svg");
 }
-@font-face {
-  font-family: "FontAwesome_regular";
-  src: url(/scss/regular.scss);
-}
-@font-face {
-  font-family: "FontAwesome_solid";
-  src: url(/scss/solid.scss);
+.fa,
+.fas {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
 }
 
 /*# sourceMappingURL=font.css.map */
