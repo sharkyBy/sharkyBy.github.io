@@ -8,10 +8,7 @@ function checkData() {
 
   let obj = {};
    for (let i = 0; i < arr.length; i++) {
-     if (
-      arr[i] == 0 ||
-      Number.isNaN(arr[i]) & Number.isNaN(arr[i].replace(",", "."))
-    ) {
+     if (arr[i] == 0) {
     //   console.log(arr[i]);
       switch (i) {
         case 0:
@@ -27,16 +24,21 @@ function checkData() {
           break;
       }
       return;
-    } else {
+    }else if (isNaN(arr[i]) & isNaN(arr[i].replace(",", "."))) {
+      console.log('inside')
+      alert("Необходимо ввести числовое значение");
+      return
+    } 
+    else {
       switch (i) {
         case 0:    
           obj.maxArea = Number(arr[i]);
           break;
         case 1:          
-          obj.area = Number(arr[i]);
+          obj.area = Number(arr[i].replace(",","."));
           break;
         case 2:
-          obj.height = Number(arr[i]);
+          obj.height = Number(arr[i].replace(",","."));
         default:
           break;
       }

@@ -35,7 +35,7 @@ function fireLoad() {
     let fireLoad = multiplyCells();
 
     // console.log(fireLoad, area, heigth);
-    let maxArea = checkData().maxArea;
+    // let maxArea = checkData().maxArea;
     let area = checkData().area; 
     let height =checkData().height;
     // console.log([area,height, maxArea]);
