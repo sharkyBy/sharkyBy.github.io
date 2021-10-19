@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <script type="text/javascript" defer src="./js/index.js"></script>
+    <title>Color</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="rangeWrapper">
+        <label>
+            <span id="redS" >RED</span> 
+            <input id="rangeR" type="range" value="0" step="1" min="0" max="255" />
+        </label>
+
+        <label>
+          <span id="greenS">GREEN</span>  
+          <input id="rangeG" type="range" value="0" step="1" min="0" max="255" />
+        </label>
+
+        <label>
+          <span id="blueS">BLUE</span>  
+          <input id="rangeB" type="range" value="0" step="1" min="0" max="255" />
+        </label>
+
+      </div>
+
+      <div class="resultShow" id="show">
+        <span id="resVal">RGB(0,0,0)</span>
+      </div>
+    </div>
+  </body>
+</html>
