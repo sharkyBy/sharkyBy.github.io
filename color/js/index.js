@@ -1,3 +1,4 @@
+import numbersTranslation from "./numbersTranslation.js";
 
 const rangeR = document.getElementById("rangeR");
 const rangeG = document.getElementById("rangeG");
@@ -19,12 +20,17 @@ function getValueRange() {
   attrB.dataset.blue = rB
   // console.log(attrR, attrG, attrB)
 const showWindow = document.getElementById("show");
-const resVal = document.getElementById("resVal")
+const resRgb = document.getElementById("resRgb");
+const resHex = document.getElementById("resHex")
 showWindow.style.backgroundColor = `rgb(${rR},${rG},${rB})`;
-resVal.textContent = `RGB( ${rR}, ${rG}, ${rB} )`
+
+resRgb.textContent = `RGB( ${rR}, ${rG}, ${rB} )`
+resHex.textContent = `HEX ${numbersTranslation(rR,rG,rB)}`
 
 }
 
 rangeR.addEventListener("input",getValueRange);
 rangeG.addEventListener("input",getValueRange);
 rangeB.addEventListener("input",getValueRange);
+
+
