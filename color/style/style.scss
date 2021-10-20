@@ -40,30 +40,56 @@ body {
 
 .rangeWrapper {
     display: flex;
-    width: 100%;
-    height: 150px;
+    width: 90%;
+    height: 120px;
     align-items: center;
-    // border: 1px solid;
+    justify-content: space-between;
+    border: 1px solid;
 
     label {
         display: flex;
         align-items: center;        
-        width: 30%;
+        width: 300px;
+        justify-content: space-between;
         // border: 1px solid green;
+        span {
+            display: block;
+            position: relative;  
+            text-align: center;
+            min-width: 20%;            
+            margin-left: 20px;
+            // border: 1px solid red;         
+        }
+        input {
+            display: inline-block;
+            min-width: 70%; 
+            
+        }
     }
     #redS::before, #greenS::before, #blueS::before {   
         font-size: 12px;
-        width: 100%;
-        text-align: center;   
-        position: relative;
+        position: absolute;  
+        min-width: 20px;
+        text-align: center;       
         top: -20px;
-        left: 30px;
+        left: 20px;
+        // border: 1px solid green;
         
     }
-     //устанавливаем пользовательский атрибут
-        //потом с помощью JS к нему обратимся  
-    #redS::before {
+    #redS::after, #greenS::after, #blueS::after {   
+        font-size: 12px;
+        position: absolute;
+        min-width: 22px;
+        text-align: center;    
+        top: 20px;
+        left: 20px;
+        // border: 1px solid salmon;
+        
+    }
 
+    //устанавливаем пользовательский атрибут
+    //потом с помощью JS к нему обратимся  
+    #redS::before {
         content: attr(data-red);
     }
 
@@ -73,11 +99,21 @@ body {
     #blueS::before {
         content: attr(data-blue);
     }
+
+    #redS::after {
+
+        content: attr(data-red-percent);
+    }
+
+    #greenS::after {
+        content: attr(data-green-percent);
+    }
+    #blueS::after {
+        content: attr(data-blue-percent);
+    }
 }
 
 #rangeR, #rangeG, #rangeB {
-    margin: 30px 20px 0 10px;
-    width: 100%;
-        vertical-align: baseline;
+    margin: 30px 0;    
         
 }

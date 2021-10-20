@@ -18,6 +18,10 @@ function getValueRange() {
   attrR.dataset.red = rR;
   attrG.dataset.green = rG;
   attrB.dataset.blue = rB
+  attrR.dataset.redPercent = `${Math.round(rR * 100 / 255)} %`;
+  attrG.dataset.greenPercent = `${Math.round(rG * 100 / 255)} %`;
+  attrB.dataset.bluePercent = `${Math.round(rB * 100 / 255)} %`;
+
   // console.log(attrR, attrG, attrB)
 const showWindow = document.getElementById("show");
 const resRgb = document.getElementById("resRgb");
@@ -26,6 +30,16 @@ showWindow.style.backgroundColor = `rgb(${rR},${rG},${rB})`;
 
 resRgb.textContent = `RGB( ${rR}, ${rG}, ${rB} )`
 resHex.textContent = `HEX ${numbersTranslation(rR,rG,rB)}`
+
+// const hexR = Number(rR);
+// const hexG = Number(rG);
+// const hexB = Number(rB);
+// console.log(s.toString(16))
+
+//метод num.toString(base) - возвращает строковое представление числа к системе счисления base (от 2 до 36)
+//можно заменить функцию numberTranslation
+// resHex.textContent = `HEX #${(hexR.toString(16)).toUpperCase()}${hexG.toString(16).toUpperCase()}${hexB.toString(16).toUpperCase()}`
+
 
 }
 
