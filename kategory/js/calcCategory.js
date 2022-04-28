@@ -47,13 +47,13 @@ function fireLoad() {
 
     if(temporaryFireLoad <=2200 & temporaryFireLoad > 1400) {
         newTempFireLoad = 2200;
-        tempFire = 0.64 * newTempFireLoad * height;
+        tempFire = 0.64 * newTempFireLoad * height^2;
         fireLoad >= tempFire ? category = "категория В1": category =  "категория В2";
 
     }
     else if(temporaryFireLoad <=1400 & temporaryFireLoad > 200) {
         newTempFireLoad = 1400;
-        tempFire = 0.6 * newTempFireLoad * height;
+        tempFire = 0.64 * newTempFireLoad * height^2;
         fireLoad >= tempFire ? category = "категория В2": category = "категория В3";
     }
     else if(temporaryFireLoad <=200 & temporaryFireLoad > 100) {
@@ -82,7 +82,7 @@ _category.innerHTML =category,
 _fireLoad.innerHTML = Math.round(fireLoad,0),
 _tempFireLoad.innerHTML = Math.round(temporaryFireLoad),
 _calcTempFireLoad.innerHTML = Math.round(newTempFireLoad),
-_tempLoad.innerHTML = Math.round(0.6*newTempFireLoad*height)
+_tempLoad.innerHTML = Math.round(0.64*newTempFireLoad*height^2)
 )
 
 }
