@@ -35,6 +35,7 @@ function fireLoad() {
     let fireLoad = multiplyCells();
 
     // console.log(fireLoad, area, heigth);
+
     // let maxArea = checkData().maxArea;
     let area = checkData().area; 
     let height =checkData().height;
@@ -47,13 +48,13 @@ function fireLoad() {
 
     if(temporaryFireLoad <=2200 & temporaryFireLoad > 1400) {
         newTempFireLoad = 2200;
-        tempFire = 0.64 * newTempFireLoad * height^2;
+        tempFire = 0.64 * newTempFireLoad * height**2;
         fireLoad >= tempFire ? category = "категория В1": category =  "категория В2";
 
     }
     else if(temporaryFireLoad <=1400 & temporaryFireLoad > 200) {
         newTempFireLoad = 1400;
-        tempFire = 0.64 * newTempFireLoad * height^2;
+        tempFire = 0.64 * newTempFireLoad * height**2;
         fireLoad >= tempFire ? category = "категория В2": category = "категория В3";
     }
     else if(temporaryFireLoad <=200 & temporaryFireLoad > 100) {
@@ -78,11 +79,12 @@ let _calcTempFireLoad = document.getElementById("calcTempFireLoad");
 let _tempLoad = document.getElementById("tempLoad");
 
 return (
+    console.log(height),
 _category.innerHTML =category,
 _fireLoad.innerHTML = Math.round(fireLoad,0),
 _tempFireLoad.innerHTML = Math.round(temporaryFireLoad),
 _calcTempFireLoad.innerHTML = Math.round(newTempFireLoad),
-_tempLoad.innerHTML = Math.round(0.64*newTempFireLoad*height^2)
+_tempLoad.innerHTML = Math.round(0.64*newTempFireLoad*height**2)
 )
 
 }
