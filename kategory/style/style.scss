@@ -1,8 +1,8 @@
 // @import "../scss/fontawesome.scss";
 // @import "../scss/solid.scss";
 // @import "../scss/regular.scss";
-@import "../fonts/font.scss";
-@import "./variables.scss";
+@import "font.scss";
+@import "./_variables.scss";
 
 * {
   margin: 0;
@@ -13,7 +13,7 @@
 
 // :root{--yellow:black;}
 body {
-  background:  $body-bgd, whitesmoke;
+  background:  $body-bgd;
 }
 .container {
   width: 600px;
